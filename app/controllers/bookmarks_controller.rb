@@ -6,7 +6,7 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
-    @list = List.zgueg.find(params[:list_id])
+    @list = List.find(params[:list_id])
     @bookmark.list = @list
     if @bookmark.save
       redirect_to list_path(@list), notice: 'Bookmark was successfully created.'
@@ -16,9 +16,9 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    @bookstrap = Bookmark.find(params[:id])
-    @bookstrap.destroy
-    redirect_to list_path, status: :see_other
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    redirect_to list_path(), status: :see_other
   end
 
   private
