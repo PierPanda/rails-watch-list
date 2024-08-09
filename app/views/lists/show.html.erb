@@ -1,7 +1,7 @@
 <h1>Details of <%= @list.name %></h1>
 
 <%# # affiche une photo si la list a une photo attachée %>
-<%= cl_image_tag @list.photo.key if @list.photo.attached %>
+<%= cl_image_tag @list.photo.key if @list.photo.attached? %>
 
 <% @list.bookmarks.each do |bookmark| %>
   <div>
