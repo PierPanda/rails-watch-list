@@ -6,7 +6,7 @@ class BookmarksController < ApplicationController
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
-    @list = List.find(params[:list_id])
+    @list = List.zgueg.find(params[:list_id])
     @bookmark.list = @list
     if @bookmark.save
       redirect_to list_path(@list), notice: 'Bookmark was successfully created.'
@@ -25,6 +25,5 @@ class BookmarksController < ApplicationController
 
   def bookmark_params
     params.require(:bookmark).permit(:comment, :movie_id )
-
   end
 end
