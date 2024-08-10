@@ -1,0 +1,6 @@
+<h1>Popular Movies</h1>
+<ul>
+  <% @movies.each do |movie| %>
+    <li><%= movie["title"] %> - Rating: <%= movie["vote_average"] %></li>
+  <% end %>
+</ul>
