@@ -3,3 +3,17 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+@import "banner";
+@import "card-category";
+@import "card-product";
+@import "btn-ghost";
+@import "cards";
+@import "form";
+
+body{
+  background-color: #434343;
+  background: linear-gradient(
+    to right,
+    #000428,#004e92
+  );;
+}

@@ -1,7 +1,12 @@
-<h1>Choose your films</h1>
-
-<%= simple_form_for [@list, @bookmark], html: { data: { turbo: false } } do |f| %>
-  <%= f.association :movie %>
-  <%= f.input :comment %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container d-flex justify-content-center">
+  <div class="feedback-form">
+    <h2 class="header">Choose your films</h2>
+    <div>
+      <%= simple_form_for [@list, @bookmark], html: { data: { turbo: false } } do |f| %>
+        <%= f.association :movie, class:"mb-3 gorm-group" %>
+        <%= f.input :comment, class:"mb-3 gorm-group" %>
+        <%= f.button :submit, class:"text-center button btn btn-ghost" %>
+      <% end %>
+    </div>
+  </div>
+</div>

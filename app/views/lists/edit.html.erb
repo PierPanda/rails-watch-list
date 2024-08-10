@@ -1,0 +1,12 @@
+<div class="container d-flex justify-content-center">
+  <div class="feedback-form">
+    <h2 class="header">Edit my list</h2>
+    <div>
+      <%= simple_form_for(@list) do |f| %>
+          <%= f.input :name, class:"mb-3 gorm-group"%>
+          <%= f.input :photo, as: :file, class:"mb-3" %>
+          <%= f.button :submit, class:"text-center button btn btn-ghost" %>
+      <% end %>
+    </div>
+  </div>
+</div>
