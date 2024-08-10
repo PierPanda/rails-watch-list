@@ -11,9 +11,14 @@
 @import "form";
 
 body{
+  font-family: 'teko';
   background-color: #434343;
   background: linear-gradient(
     to right,
     #000428,#004e92
   );;
+}
+
+.btn{
+  letter-spacing: 3px;
 }
