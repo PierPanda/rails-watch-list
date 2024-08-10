@@ -7,18 +7,23 @@
 </div>
 
 <div class="cards my-2">
-  <% @lists.each do |list| %>
-    <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg' %>)">
-      <div class="text-start">
-        <%= link_to list.name, list_path(list), class:"text-decoration-none text-white"%>
+
+  <% if @lists.empty? %>
+    <p>No lists yet</p>
+  <% else %>
+    <% @lists.each do |list| %>
+      <div class="card-category position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : 'https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg' %>)">
+        <div class="text-start">
+          <%= link_to list.name, list_path(list), class:"text-decoration-none text-white"%>
+        </div>
+        <div class="position-absolute top-0 start-0 px-2 py-2">
+        </div>
+        <div class="position-absolute top-0 end-0 px-2 py-2">
+          <%= link_to list_path(list), class:"text-white", data: {turbo_method: :delete, turbo_confirm: 'Are you sure brooo ??'} do %>
+            <i class="fa-duotone fa-solid fa-xmark" style="--fa-secondary-opacity: 0.6;"></i>
+          <% end %>
+        </div>
       </div>
-      <div class="position-absolute top-0 start-0 px-2 py-2">
-      </div>
-      <div class="position-absolute top-0 end-0 px-2 py-2">
-        <%= link_to list_path(list), class:"text-white", data: {turbo_method: :delete, turbo_confirm: 'Are you sure brooo ??'} do %>
-          <i class="fa-duotone fa-solid fa-xmark" style="--fa-secondary-opacity: 0.6;"></i>
-        <% end %>
-      </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
